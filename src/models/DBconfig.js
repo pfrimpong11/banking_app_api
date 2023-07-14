@@ -3,10 +3,10 @@ import p from "pg"
 const Pool = p.Pool
 
 const pool = new Pool({
-    user:"postgres",
+    user:"isaac_sakyi",
     host:"localhost",
-    database:"bankingapp",
-    password:"101029052gm",
+    database:"banking_db",
+    password:"database_manager1",
     port:5432
 })
 
