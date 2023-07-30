@@ -7,6 +7,7 @@ export const verifyJwt = (req,res,next)=>{
 
     const {token} = req.cookies;
     // return res.json(token)
+console.log(token)
     if (!token){
         return res.status(StatusCodes.UNAUTHORIZED).json({
             success:false,

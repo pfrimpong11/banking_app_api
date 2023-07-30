@@ -11,14 +11,14 @@ CREATE TABLE Customer (
   account_number VARCHAR(20) NOT NULL,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW(),
-  balance NUMERIC(10, 2),
+  balance NUMERIC(10, 2) DEFAULT 1000.00,
   total_transactions UUID REFERENCES transactions(transaction_id),
   transaction_date  TIMESTAMPTZ DEFAULT NOW(),
   password VARCHAR(150) NOT NULL 
 );
 CREATE TABLE transactions (
   transaction_id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-  user_id INTEGER,
+  user_id UUID DEFAULT uuid_generate_v4() ,
   destination_account  VARCHAR(15) NOT NULL,
   amount NUMERIC(10, 2),
   reference VARCHAR (500),
@@ -35,6 +35,9 @@ CREATE TABLE ADMINISTRATOR (
     ssnit_number VARCHAR(50),
     health_insurance_number VARCHAR(20)
 );
+
+-- ALTER TABLE transactions ALTER COLUMN user_id TYPE UUID USING user_id::UUID;
+
 CREATE TABLE AccountDetails (
   account_id SERIAL PRIMARY KEY,
   account_number VARCHAR(20) NOT NULL,

@@ -2,10 +2,10 @@
 import {StatusCodes} from "http-status-codes"
  export const verifyInputs = (req,res,next)=>{
      
-    const {first_name,last_name,email,password,address,dob, ghana_card_number,phone} = req.body
+    const {first_name,last_name,email,password,address,date_of_birth, ghana_card_number,phone} = req.body
     let regex =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     
-    const userInputs = [first_name,last_name,email,password,address,dob, ghana_card_number,phone]
+    const userInputs = [first_name,last_name,email,password,address,date_of_birth, ghana_card_number,phone]
     const required = [];
 
     if (!regex.test(email)){
@@ -16,7 +16,7 @@ import {StatusCodes} from "http-status-codes"
     }
    for (const param of userInputs) {
 
-    if(param?.length==0 || param == "undefined" || typeof param != "string"){
+    if(param?.length == 0 || param == "undefined" || typeof param != "string"){
         required.push(param)
     }
 
