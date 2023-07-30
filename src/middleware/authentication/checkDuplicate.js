@@ -18,7 +18,7 @@ export const checkDuplicate = async (req,res,next)=>{
         let queryObj  = {email:result[0].rows,card:result[1].rows,phone:result[2].rows}
 
         const msg = createMessage(queryObj)
-      console.log(msg, "form check duplicates")
+     // console.log(msg, "form check duplicates")
 
     if (msg !== "")
     {
