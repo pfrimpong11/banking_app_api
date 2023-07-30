@@ -1,7 +1,7 @@
-import { StatusCodes } from "http-status-codes"
-import { verifyJwt } from "../authentication/verifyJwt"
+const { StatusCodes } = require( "http-status-codes")
+const { verifyJwt } = require( "../authentication/verifyJwt")
 
-export const isAdmin = (req, res, next)=>{
+const isAdmin = (req, res, next)=>{
     return  verifyJwt(req,res,()=>{
         if (!req.user.isAdmin){
             return res.status(StatusCodes.UNAUTHORIZED).json({
@@ -14,3 +14,5 @@ export const isAdmin = (req, res, next)=>{
         }
     })
 }
+
+module.exports = isAdmin

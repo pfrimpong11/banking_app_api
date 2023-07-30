@@ -1,11 +1,11 @@
-import { StatusCodes } from "http-status-codes"
-import pool from "../../models/DBconfig.js";
-import { queries } from "../../queries/queries.js";
+const  { StatusCodes } = require( "http-status-codes")
+const  pool = require( "../../models/DBconfig.js");
+const  { queries } = require( "../../queries/queries.js")
 
 
 
 
-export const getProfile =  async (req,res)=>{
+ const getProfile =  async (req,res)=>{
     try {
     const {id} =  req.user;
 
@@ -19,3 +19,5 @@ export const getProfile =  async (req,res)=>{
         res.status(StatusCodes.BAD_REQUEST).json({success:false, message:error.message})
     }
 }
+
+module.exports = getProfile

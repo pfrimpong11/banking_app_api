@@ -1,17 +1,17 @@
-import express from "express"
-import dotenv from "dotenv"
-import authRoute from "./src/routes/auth.js"
-import { rte as trancationRoute } from "./src/routes/transactions.js"
-import generalRoute from "./src/routes/general.js"
-import {sudo as sudoRoute} from "./src/routes/sudo.js"
-import cookieParser from "cookie-parser"
-import cors from "cors"
-import bodyParser from "body-parser"
-import swaggerUi from "swagger-ui-express"
-import swaggerJSdoc from "swagger-jsdoc"
-import swaggerDocument from "./swagger.json" assert {type:"json"}
-import YAML from "yaml"
-import fs from "fs"
+const  express = require( "express")
+const  dotenv = require( "dotenv")
+const  authRoute = require( "./src/routes/auth.js")
+const   trancationRoute = require( "./src/routes/transactions.js")
+const  generalRoute = require( "./src/routes/general.js")
+const  sudoRoute = require( "./src/routes/sudo.js")
+const  cookieParser = require( "cookie-parser")
+const  cors = require( "cors")
+const  bodyParser = require( "body-parser")
+const  swaggerUi = require( "swagger-ui-express")
+const  swaggerJSdoc = require( "swagger-jsdoc")
+const  swaggerDocument = require( "./swagger.json") 
+const  YAML = require( "yaml")
+const  fs = require( "fs")
 
 dotenv.config()
 
@@ -65,3 +65,4 @@ process.on('uncaughtException', (err) => {
   
   process.exit(1); 
 });
+

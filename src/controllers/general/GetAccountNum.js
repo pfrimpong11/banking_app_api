@@ -1,10 +1,10 @@
-import { StatusCodes } from "http-status-codes"
-import pool from "../../models/DBconfig.js"
-import { queries } from "../../queries/queries.js"
+const  { StatusCodes }  = require("http-status-codes")
+const  pool  = require("../../models/DBconfig.js")
+const  { queries }  = require("../../queries/queries.js")
 
 
 
-export const getAccountNum =  async (req,res) => {
+ const getAccountNum =  async (req,res) => {
 
     const {account_number} =  req.query
 
@@ -30,3 +30,5 @@ export const getAccountNum =  async (req,res) => {
         })
     }
 }
+
+module.exports = getAccountNum

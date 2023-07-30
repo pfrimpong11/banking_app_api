@@ -1,4 +1,4 @@
-export function generateAccountNumber() {
+ function generateAccountNumber() {
     const bankCode = '140'; 
     const branchCode = '22'; 
     const accountNumberLength = 10; 
@@ -11,3 +11,5 @@ export function generateAccountNumber() {
  
   }
   
+
+  module.exports = generateAccountNumber

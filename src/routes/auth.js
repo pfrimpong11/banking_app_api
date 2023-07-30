@@ -1,11 +1,11 @@
-import express from "express"
-import { Register } from "../controllers/auth/Register.js"
-import { verifyInputs } from "../middleware/authentication/verifyInputs.js"
-import { checkDuplicate} from "../middleware/authentication/checkDuplicate.js"
-import { login } from "../controllers/auth/Login.js"
-import { logout } from "../controllers/auth/Logout.js"
-import { verifyJwt } from "../middleware/authentication/verifyJwt.js"
-import { profile } from "../controllers/auth/Profile.js"
+const  express = require( "express")
+const  Register  = require( "../controllers/auth/Register.js")
+const   verifyInputs  = require( "../middleware/authentication/verifyInputs.js")
+const   checkDuplicate = require( "../middleware/authentication/checkDuplicate.js")
+const   login = require( "../controllers/auth/Login.js")
+const   logout  = require( "../controllers/auth/Logout.js")
+const   verifyJwt = require( "../middleware/authentication/verifyJwt.js")
+const  profile  = require( "../controllers/auth/Profile.js")
 const route =  express.Router()
 
 
@@ -30,4 +30,4 @@ route.get("/profile",verifyJwt,profile)
 
 
 
-export default route
+module.exports = route

@@ -1,5 +1,5 @@
-import pool from "../../models/DBconfig.js"
-import { queries } from "../../queries/queries.js"
+const pool = require( "../../models/DBconfig.js")
+const { queries } = require( "../../queries/queries.js")
 
 
 
@@ -14,4 +14,4 @@ const getAllCustomers = async (req,res)=>{
     }
 }
 
-export default getAllCustomers
+module.exports =  getAllCustomers

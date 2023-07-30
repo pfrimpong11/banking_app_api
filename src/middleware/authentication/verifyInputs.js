@@ -1,6 +1,6 @@
 
-import {StatusCodes} from "http-status-codes"
- export const verifyInputs = (req,res,next)=>{
+const {StatusCodes} = require("http-status-codes")
+ const verifyInputs = (req,res,next)=>{
      
     const {first_name,last_name,email,password,address,date_of_birth, ghana_card_number,phone} = req.body
     let regex =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -29,3 +29,5 @@ import {StatusCodes} from "http-status-codes"
    }
    next()
 }
+
+module.exports = verifyInputs

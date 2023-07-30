@@ -1,5 +1,5 @@
-import pool from "../../models/DBconfig.js"
-import { queries } from "../../queries/queries.js"
+const  pool = require( "../../models/DBconfig.js")
+const  { queries } = require( "../../queries/queries.js")
 
 
 
@@ -20,4 +20,4 @@ const checkBalance  = async (req,res) =>{
         }
 }
 
-export default checkBalance
+module.exports = checkBalance

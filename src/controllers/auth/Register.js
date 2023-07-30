@@ -1,10 +1,10 @@
-import { StatusCodes } from "http-status-codes"
-import pool from "../../models/DBconfig.js"
-import { queries } from "../../queries/queries.js"
-import { generateAccountNumber } from "../../util/createAccountNumber.js"
-import bcrypt from "bcryptjs"
+const { StatusCodes } = require( "http-status-codes")
+const pool = require( "../../models/DBconfig.js")
+const { queries } = require( "../../queries/queries.js")
+const { generateAccountNumber } = require( "../../util/createAccountNumber.js")
+const bcrypt = require( "bcryptjs")
 
-export const Register = async (req,res)=>{
+ const Register = async (req,res)=>{
    
     const {first_name,last_name,email,password,address,date_of_birth, ghana_card_number,phone} = req.body
     
@@ -24,3 +24,6 @@ export const Register = async (req,res)=>{
    }
 
 }
+
+
+module.exports = Register

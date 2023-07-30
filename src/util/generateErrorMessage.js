@@ -1,5 +1,5 @@
 
-export const createMessage =  (queryObj)=>{
+ const createMessage =  (queryObj)=>{
 
     let message =  ``;
     let first_msg =  true;
@@ -26,3 +26,6 @@ export const createMessage =  (queryObj)=>{
 
 
 }
+
+
+module.exports = createMessage

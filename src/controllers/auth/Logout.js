@@ -1,8 +1,11 @@
-import { StatusCodes } from "http-status-codes"
+const { StatusCodes } = require("http-status-codes")
 
-export const logout = (req,res)=>{
+const logout = (req,res)=>{
     
     res.cookie("token","")
     return res.status(StatusCodes.OK).
     json({success:true, message:"logout successfull"})
 }
+
+
+module.exports = logout
