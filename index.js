@@ -10,23 +10,13 @@ const  bodyParser = require( "body-parser")
 const  swaggerUi = require( "swagger-ui-express")
 const  swaggerJSdoc = require( "swagger-jsdoc")
 const  swaggerDocument = require( "./swagger.json") 
+const pathToSwaggerUi = require('swagger-ui-dist').absolutePath()
 const  YAML = require( "yaml")
 const  fs = require( "fs")
 
 dotenv.config()
 
-// SWAGGER SETUP
 
-// const file = fs.readFileSync("./swagger.yaml","utf8")
-// const swaggerDocument =  YAML.parse(file)
-// const swaggerOptions ={
-//     swaggerDefinitions:{
-//         info:"Banking api",
-//         version:"1.0.0"
-//     },
-//     apis:["index.js"]
-// }
-// const swaggerDocs = swaggerJSDoc(swaggerOptions)
 
 const options = {
     failOnErrors: true, // Whether or not to throw when parsing errors. Defaults to false.
@@ -40,12 +30,10 @@ const options = {
     apis: ['./src/routes*.js']
   };
 
-  const openapiSpecification = swaggerJSdoc(options)
+const openapiSpecification = swaggerJSdoc(options)
 const app = express()
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.get("/",(req,res)=>{
-  res.redirect("/api-docs")
-})
+app.use(express.static(pathToSwaggerUi))
+app.get("/",(req,res)=> {res.redirect("/api-docs")})
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpecification));
 app.use(cors({origin:"http://localhost:19006", credentials:true}))
 app.use(express.json())
