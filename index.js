@@ -40,7 +40,7 @@ const options = {
     apis: ['./src/routes*.js']
   };
 
-  // const openapiSpecification = swaggerJSdoc(options)
+  const openapiSpecification = swaggerJSdoc(options)
 const app = express()
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpecification));
