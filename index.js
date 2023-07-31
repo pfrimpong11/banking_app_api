@@ -31,7 +31,7 @@ const options = {
 const openapiSpecification = swaggerJSdoc(options)
 const app = express()
 
-
+app.use(express.static("public"))
 app.get('/api-docs/swagger-ui.css', (req, res) => {
   res.setHeader('Content-Type', 'text/css');
   const cssFilePath = path.join(__dirname, 'swagger-ui.css');
