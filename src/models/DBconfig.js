@@ -8,8 +8,7 @@ const Pool = require("pg").Pool;
 
 const fs =  require("fs")
 const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL + "?sslmode=require" ,
- 
+  connectionString: process.env.POSTGRES_URL ,
 })
 
 
