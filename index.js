@@ -29,7 +29,7 @@ dotenv.config()
 // const swaggerDocs = swaggerJSDoc(swaggerOptions)
 
 const options = {
-    failOnErrors: true, // Whether or not to throw when parsing errors. Defaults to false.
+    failOnErrors: true, 
     definition: {
       openapi: '3.0.0',
       info: {
@@ -37,13 +37,13 @@ const options = {
         version: '1.0.0',
       },
     },
-    apis: ['./src/routes*.js'],
+    apis: ['./src/routes*.js']
   };
 
-  const openapiSpecification = swaggerJSdoc(options)
+  // const openapiSpecification = swaggerJSdoc(options)
 const app = express()
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpecification));
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpecification));
 app.use(cors({origin:"http://localhost:19006", credentials:true}))
 app.use(express.json())
 app.use(bodyParser.json())
