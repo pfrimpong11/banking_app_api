@@ -37,7 +37,7 @@ const app = express()
 
 app.get('/api-docs/swagger-ui.css', (req, res) => {
   res.setHeader('Content-Type', 'text/css');
-  res.sendFile('./public' + '/swagger-ui.css');
+  res.sendFile('/public' + '/swagger-ui.css');
 });
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpecification));
 
