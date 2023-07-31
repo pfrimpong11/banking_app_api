@@ -1,5 +1,6 @@
 const  express = require( "express")
 const  dotenv = require( "dotenv")
+const path = require("path")
 const  authRoute = require( "./src/routes/auth.js")
 const   trancationRoute = require( "./src/routes/transactions.js")
 const  generalRoute = require( "./src/routes/general.js")
