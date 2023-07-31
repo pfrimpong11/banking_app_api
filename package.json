@@ -20,6 +20,9 @@
     "dependencies": {
     
         
+    "@vercel/postgres": "^0.4.1",
+    
+        
     "bcryptjs": "^2.4.3",
     
         
