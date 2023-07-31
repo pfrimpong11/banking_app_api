@@ -15,7 +15,7 @@
     },
     "servers": [
       {
-        "url": "http://localhost:4000"
+        "url": "https://banking-app-fis7hiuba-isaac-svg.vercel.app/api-docs/"
       }
     ],
     "paths": {

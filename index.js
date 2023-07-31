@@ -11,9 +11,6 @@ const  bodyParser = require( "body-parser")
 const  swaggerUi = require( "swagger-ui-express")
 const  swaggerJSdoc = require( "swagger-jsdoc")
 const  swaggerDocument = require( "./swagger.json") 
-const pathToSwaggerUi = require('swagger-ui-dist').absolutePath()
-const  YAML = require( "yaml")
-const  fs = require( "fs")
 
 dotenv.config()
 
@@ -33,7 +30,6 @@ const options = {
 
 const openapiSpecification = swaggerJSdoc(options)
 const app = express()
-// app.use(express.static('public'))
 
 
 app.get('/api-docs/swagger-ui.css', (req, res) => {
