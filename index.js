@@ -32,15 +32,20 @@ const options = {
 
 const openapiSpecification = swaggerJSdoc(options)
 const app = express()
-app.use(express.static(pathToSwaggerUi))
-app.use((req, res, next) => {
-  if (req.url.endsWith('.css')) {
-    res.setHeader('Content-Type', 'text/css');
-  }
-  next();
-});
-app.get("/",(req,res)=> {res.redirect("/api-docs")})
+// app.use(express.static('public'))
+
+
+// app.use((req, res, next) => {
+//   if (req.url.endsWith('.css')) {
+//     res.setHeader('Content-Type', 'text/css');
+//   }
+//   next();
+// });
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpecification));
+app.get("/",(req,res)=> {res.redirect("/api-docs")})
+app.get('/api-docs/swagger-ui.css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css');
+});
 app.use(cors({origin:"http://localhost:19006", credentials:true}))
 app.use(express.json())
 app.use(bodyParser.json())
