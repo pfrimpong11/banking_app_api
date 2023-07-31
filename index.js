@@ -43,7 +43,10 @@ const options = {
   const openapiSpecification = swaggerJSdoc(options)
 const app = express()
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.get('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpecification));
+app.get("/",(req,res)=>{
+  res.setHeader('Content-Type', 'text/css');
+})
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpecification));
 app.use(cors({origin:"http://localhost:19006", credentials:true}))
 app.use(express.json())
 app.use(bodyParser.json())
