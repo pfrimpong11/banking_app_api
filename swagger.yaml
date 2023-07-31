@@ -8,7 +8,7 @@ item:
     request:
       method: POST
       url:
-        raw: localhost:4000/auth/register
+        raw: https://banking-app-fis7hiuba-isaac-svg.vercel.app/api-docs/auth/register
         path:
           - auth
           - register
