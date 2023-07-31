@@ -1,8 +1,8 @@
-import { StatusCodes } from "http-status-codes"
-import { queries } from "../queries.js"
-import pool from "../../models/DBconfig.js"
+const  { StatusCodes } = require( "http-status-codes")
+const  { queries } = require( "../queries.js")
+const  pool = require( "../../models/DBconfig.js")
 
-export const getByEmail =  (email,fns) =>{
+ const getByEmail =  (email,fns) =>{
 
    
     pool.query(queries.checkEmailExists ,[email],(error,result)=>{
@@ -15,3 +15,5 @@ export const getByEmail =  (email,fns) =>{
        return fns(result.rowCount)
     }) 
 }
+
+module.exports =  getByEmail

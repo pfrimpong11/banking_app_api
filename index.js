@@ -1,32 +1,20 @@
-import express from "express"
-import dotenv from "dotenv"
-import authRoute from "./src/routes/auth.js"
-import { rte as trancationRoute } from "./src/routes/transactions.js"
-import generalRoute from "./src/routes/general.js"
-import {sudo as sudoRoute} from "./src/routes/sudo.js"
-import cookieParser from "cookie-parser"
-import cors from "cors"
-import bodyParser from "body-parser"
-import swaggerUi from "swagger-ui-express"
-import swaggerJSdoc from "swagger-jsdoc"
-import swaggerDocument from "./swagger.json" assert {type:"json"}
-import YAML from "yaml"
-import fs from "fs"
-
+const  express = require( "express")
+const  dotenv = require( "dotenv")
+const path = require("path")
+const  authRoute = require( "./src/routes/auth.js")
+const   trancationRoute = require( "./src/routes/transactions.js")
+const  generalRoute = require( "./src/routes/general.js")
+const  sudoRoute = require( "./src/routes/sudo.js")
+const  cookieParser = require( "cookie-parser")
+const  cors = require( "cors")
+const  bodyParser = require( "body-parser")
+const  swaggerUi = require( "swagger-ui-express")
+const  swaggerJSdoc = require( "swagger-jsdoc")
+const  swaggerDocument = require( "./swagger.json") 
+const pathToSwaggerUi = require('swagger-ui-dist').absolutePath()
 dotenv.config()
 
-// SWAGGER SETUP
 
-// const file = fs.readFileSync("./swagger.yaml","utf8")
-// const swaggerDocument =  YAML.parse(file)
-// const swaggerOptions ={
-//     swaggerDefinitions:{
-//         info:"Banking api",
-//         version:"1.0.0"
-//     },
-//     apis:["index.js"]
-// }
-// const swaggerDocs = swaggerJSDoc(swaggerOptions)
 
 const options = {
     failOnErrors: true, // Whether or not to throw when parsing errors. Defaults to false.
@@ -37,14 +25,24 @@ const options = {
         version: '1.0.0',
       },
     },
-    apis: ['./src/routes*.js'],
+    apis: ['./src/routes*.js']
   };
 
-  const openapiSpecification = swaggerJSdoc(options)
+const openapiSpecification = swaggerJSdoc(options)
 const app = express()
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// app.use(express.static("public"))
+app.use(express.static(pathToSwaggerUi))
+app.get('/api-docs/swagger-ui.css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css');
+  const cssFilePath = path.join(__dirname, 'swagger-ui.css');
+  res.sendFile(cssFilePath);
+});
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpecification));
-app.use(cors({origin:"http://localhost:19006", credentials:true}))
+
+app.get("/",(req,res)=> {res.redirect("/api-docs")})
+
+app.use(cors({origin:"*", credentials:true}))
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -65,3 +63,4 @@ process.on('uncaughtException', (err) => {
   
   process.exit(1); 
 });
+

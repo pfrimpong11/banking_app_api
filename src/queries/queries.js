@@ -47,9 +47,7 @@ UPDATE customer SET balance = balance + $2 WHERE account_number = $1;
 
 // SUDO
 
-
-
-export const queries={
+const queries={
     getAllCustomers,
     getByEmail,
     getByAccountNumber,
@@ -67,3 +65,5 @@ export const queries={
     creditAccount,
     debitAccount
 }
+
+module.exports = {queries}

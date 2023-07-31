@@ -1,6 +1,6 @@
-import { StatusCodes } from "http-status-codes"
+const { StatusCodes } = require( "http-status-codes")
 
-export const profile  = (req,res)=>{
+const profile  = (req,res)=>{
 
     if (!req.user){
         return res.status(StatusCodes.UNAUTHORIZED).json({
@@ -13,3 +13,5 @@ export const profile  = (req,res)=>{
         res.status(StatusCodes.OK).json(req.user)
     }
 }
+
+module.exports = profile

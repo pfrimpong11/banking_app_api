@@ -1,10 +1,10 @@
-import pool from "../../models/DBconfig.js"
-import {queries} from "../../queries/queries.js"
-import {StatusCodes} from "http-status-codes"
-import { createMessage } from "../../util/generateErrorMessage.js"
+const  pool = require( "../../models/DBconfig.js")
+const  {queries} = require( "../../queries/queries.js")
+const  {StatusCodes} = require( "http-status-codes")
+const  { createMessage } = require( "../../util/generateErrorMessage.js")
 
 
-export const checkDuplicate = async (req,res,next)=>{
+ const checkDuplicate = async (req,res,next)=>{
     try {
   
         const {email,ghana_card_number,phone} =  req.body
@@ -36,3 +36,5 @@ export const checkDuplicate = async (req,res,next)=>{
     }
 
 }
+
+module.exports = checkDuplicate

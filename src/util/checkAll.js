@@ -1,5 +1,5 @@
 
-export const verifyAll = (args)=>{
+ const verifyAll = (args)=>{
      
     const required = [];
    for (const param of args) {
@@ -10,3 +10,5 @@ export const verifyAll = (args)=>{
    }
    
 }
+
+module.exports = verifyAll

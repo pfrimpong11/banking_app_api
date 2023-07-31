@@ -3,7 +3,7 @@
     "info": {
       "version": "1.0.0",
       "title": "Banking Api",
-      "description": "This api provides the basic functionality that a banking application provides",
+      "description": "This api provides the basic functionality that a banking application provides - (Beta version)",
       "contact": {
         "name": "Isaac Sakyi",
         "email": "isaacsakyi009@gmail.com"
@@ -15,7 +15,7 @@
     },
     "servers": [
       {
-        "url": "http://localhost:4000"
+        "url": "https://banking-app-fis7hiuba-isaac-svg.vercel.app/api-docs/"
       }
     ],
     "paths": {
@@ -59,7 +59,7 @@
                     },
                     "password": {
                       "type": "string",
-                      "example":"password"
+                      "example":"secret123"
                     }
                   },
                   "required": ["first_name", "last_name", "email", "password","ghana_card_number","address","date_of_birth","phone"]
