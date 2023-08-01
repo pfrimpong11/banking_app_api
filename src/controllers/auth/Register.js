@@ -1,7 +1,7 @@
 const { StatusCodes } = require( "http-status-codes")
-const pool = require( "../../models/DBconfig.js")
+const pool = require("../../models/DBconfig.js")
 const { queries } = require( "../../queries/queries.js")
-const { generateAccountNumber } = require( "../../util/createAccountNumber.js")
+const  generateAccountNumber  = require( "../../util/createAccountNumber.js")
 const bcrypt = require( "bcryptjs")
 
  const Register = async (req,res)=>{
