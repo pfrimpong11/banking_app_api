@@ -42,7 +42,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument,openapiSpe
 
 app.get("/",(req,res)=> {res.redirect("/api-docs")})
 
-app.use(cors({origin:"*", credentials:true}))
+app.use(cors({origin:"localhost:3000", credentials:true}))
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
